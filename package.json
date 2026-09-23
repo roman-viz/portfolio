@@ -3,6 +3,9 @@
   "version": "0.1.0",
   "homepage": "https://roman-viz.github.io/portfolio",
   "private": true,
+  "engines": {
+    "node": "24.x"
+  },
   "dependencies": {
     "@emailjs/browser": "^3.9.1",
     "@testing-library/jest-dom": "^5.16.5",
