@@ -46,6 +46,18 @@ body:has(.menu:hover) {
     }
 }
 
+body:has(.project_tabs:hover) {
+    .cursor-dot,
+    .cursor-dot-outline {
+        opacity: 0 !important;
+    }
+
+    .project_tabs,
+    .project_tabs button {
+        cursor: pointer !important;
+    }
+}
+
 @media (hover: none) {
 
     .cursor-dot,

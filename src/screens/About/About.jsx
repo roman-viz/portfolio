@@ -127,7 +127,7 @@ function About() {
                     </li>
                 </ul>
 
-                <a href="/assets/CV — Junior front-end developer, Roman Viznij.pdf" download>
+                <a href="/assets/CV.pdf" download>
                     <ButtonPrim text="Download CV">
                         <svg>
                             <use href={sprites + '#download'} />

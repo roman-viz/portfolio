@@ -54,6 +54,7 @@ function Works() {
             client: '-',
             languages: 'Angular, Ionic, Capacitor, Firebase',
             img: '/assets/img/works/factMe.webp',
+            preview: 'https://play.google.com/store/apps/details?id=io.factme.app',
         },
         'absences-calendar': {
             'heading': 'absences calendar',
