@@ -7,7 +7,7 @@
 .cursor-dot,
 .cursor-dot-outline {
     pointer-events: none;
-    position: absolute;
+    position: fixed;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
@@ -28,6 +28,22 @@
     height: 40px;
     background-color: #ff8c005c;
     //mix-blend-mode: difference;
+}
+
+body:has(.menu:hover) {
+    .cursor-dot,
+    .cursor-dot-outline {
+        opacity: 0 !important;
+    }
+
+    .menu,
+    .menu a,
+    .menu li,
+    .menu h2,
+    .menu svg,
+    .menu use {
+        cursor: pointer !important;
+    }
 }
 
 @media (hover: none) {

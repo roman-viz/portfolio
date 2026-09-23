@@ -145,43 +145,32 @@
     // HEXAGON SHAPES LAYOUT ~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
     .skills_main {
-        display: flex;
+        display: block;
         --s: 300px;
-        /* size  */
-        --m: 40px;
-        /* margin */
-        --f: calc(1.732 * var(--s) + 4 * var(--m) - 1px);
-    }
-
-    .skills_wrapper::before {
-        content: "";
-        width: calc(var(--s)/2 + var(--m));
-        float: left;
-        height: 120%;
-        shape-outside: repeating-linear-gradient(#0000 0 calc(var(--f) - 3px),
-                #000 0 var(--f));
     }
 
     .skills_wrapper {
-        font-size: 0;
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 40px 20px;
+        padding: 0 0 40px;
 
         .skill {
             background-color: $bgLight;
-            width: var(--s);
-            margin: var(--m);
-            height: calc(var(--s)*1.1547);
-            display: inline-block;
-            font-size: initial;
+            width: min(100%, var(--s));
+            aspect-ratio: 1 / 1.1547;
+            height: auto;
+            margin: 0 auto;
             clip-path: polygon(0% 25%, 0% 75%, 50% 100%, 100% 75%, 100% 25%, 50% 0%);
             background: $bgLight;
-            margin-bottom: calc(var(--m) - var(--s)*0.2885);
             transition: all 0.3s;
 
             &:hover {
-                transform: scale(1.2) rotateZ(-31deg);
+                transform: rotateZ(-31deg);
 
                 svg {
                     fill: $orange;
+                    transform: rotateZ(31deg) scale(0.58);
                 }
             }
 
@@ -189,6 +178,8 @@
                 transform: scale(0.5);
                 height: 100%;
                 width: 100%;
+                color: #fff;
+                transition: transform 0.3s;
             }
         }
 
@@ -233,13 +224,53 @@
         .ts {
             fill: #1E90FF;
         }
+
+        .docker {
+            fill: #2496ED;
+        }
+
+        .express {
+            fill: #FFFFFF;
+        }
+
+        .figma {
+            fill: #F24E1E;
+        }
+
+        .firebase {
+            fill: #FFCA28;
+        }
+
+        .tailwind {
+            fill: #38BDF8;
+        }
+
+        .nx {
+            fill: #143055;
+        }
+
+        .primeng {
+            fill: #DD0031;
+        }
+
+        .ionic {
+            fill: #3880FF;
+        }
+
+        .capacitor {
+            fill: #119EFF;
+        }
+
+        .jasmine {
+            fill: #8A4182;
+        }
     }
 }
 
 @media (min-width: 1201px) {
     .about {
         .skills {
-            margin-bottom: 600px;
+            margin-bottom: 0;
         }
     }
 }
@@ -247,23 +278,29 @@
 @media (max-width: 1200px) and (min-width: 992px) {
     .about {
         .skills {
-            margin-bottom: 400px;
+            margin-bottom: 0;
         }
 
-        .skills_main {
-            --s: 200px;
-            /* size  */
-            --m: 20px;
-            /* margin */
-            --f: calc(1.732 * var(--s) + 4 * var(--m) - 1px);
-        }
     }
 }
 
 @media (max-width: 991px) and (min-width: 768px) {
     .about {
+        width: min(90vw, 900px);
+        padding: 32px 0 80px;
+
+        h3 {
+            font-size: clamp(20px, 3vw, 26px);
+            letter-spacing: 0.28rem;
+            margin-top: 72px;
+        }
+
+        .skills_wrapper {
+            gap: 24px 14px;
+        }
+
         .skills {
-            margin-bottom: 300px;
+            margin-bottom: 0;
         }
 
         &_infos {
@@ -272,14 +309,6 @@
                     font-size: 17px !important;
                 }
             }
-        }
-
-        .skills_main {
-            --s: 160px;
-            /* size  */
-            --m: 20px;
-            /* margin */
-            --f: calc(1.732 * var(--s) + 4 * var(--m) - 1px);
         }
 
         .experience {
@@ -304,8 +333,11 @@
 
 @media (max-width: 767px) and (min-width: 576px) {
     .about {
+        width: 90vw;
+        padding: 24px 0 80px;
+
         .skills {
-            margin-bottom: 250px;
+            margin-bottom: 0;
         }
 
         h3 {
@@ -326,14 +358,6 @@
                     font-size: 17px !important;
                 }
             }
-        }
-
-        .skills_main {
-            --s: 100px;
-            /* size  */
-            --m: 20px;
-            /* margin */
-            --f: calc(1.732 * var(--s) + 4 * var(--m) - 1px);
         }
 
         .experience {
@@ -358,9 +382,13 @@
 
 @media (max-width: 575px) {
     .about {
+        width: calc(100vw - 32px);
+        padding: 20px 0 80px;
+
         h3 {
             font-size: 19px;
             letter-spacing: 0.3rem;
+            margin-top: 64px;
         }
 
         &_infos {
@@ -384,12 +412,9 @@
             }
         }
 
-        .skills_main {
-            --s: 80px;
-            /* size  */
-            --m: 10px;
-            /* margin */
-            --f: calc(1.732 * var(--s) + 4 * var(--m) - 1px);
+        .skills_wrapper {
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 20px 10px;
         }
 
         .experience {

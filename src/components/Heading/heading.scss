@@ -60,16 +60,18 @@
 
 @media (max-width: 575px) {
     .heading {
+        margin: 36px 0 52px;
+
         .spanBG {
-            font-size: 55px;
-            letter-spacing: 8px;
+            font-size: clamp(38px, 13vw, 55px);
+            letter-spacing: 4px;
         }
 
         h1 {
-            font-size: 32px;
+            font-size: clamp(25px, 8vw, 32px);
 
             span {
-                font-size: 32px;
+                font-size: clamp(25px, 8vw, 32px);
             }
         }
     }

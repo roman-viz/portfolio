@@ -5,7 +5,32 @@ import ButtonPrim from '../../components/ButtonPrim/ButtonPrim';
 import { Helmet } from "react-helmet-async";
 import Loader from '../../components/Loader/Loader';
 import { useState, useEffect } from 'react';
-import { Parallax } from 'react-scroll-parallax';
+
+const skills = [
+    { label: 'HTML5', icon: 'html' },
+    { label: 'CSS3', icon: 'css' },
+    { label: 'JavaScript', icon: 'js' },
+    { label: 'TypeScript', icon: 'ts' },
+    { label: 'React', icon: 'react' },
+    { label: 'Angular', icon: 'angular' },
+    { label: 'NgRx', icon: 'ngrx' },
+    { label: 'SASS / SCSS', icon: 'sass' },
+    { label: 'Bootstrap', icon: 'bootstrap' },
+    { label: 'Tailwind CSS', icon: 'tailwind' },
+    { label: 'PrimeNG', icon: 'primeng' },
+    { label: 'Node.js', icon: 'node' },
+    { label: 'Express.js', icon: 'express' },
+    { label: 'Docker', icon: 'docker' },
+    { label: 'Gulp', icon: 'gulp' },
+    { label: 'Nx', icon: 'nx' },
+    { label: 'Git', icon: 'git' },
+    { label: 'Firebase', icon: 'firebase' },
+    { label: 'WordPress', icon: 'wordpress' },
+    { label: 'Ionic', icon: 'ionic' },
+    { label: 'Capacitor', icon: 'capacitor' },
+    { label: 'Figma', icon: 'figma' },
+    { label: 'Jasmine', icon: 'jasmine' },
+];
 
 
 function About() {
@@ -81,7 +106,7 @@ function About() {
                             Email:
                         </span>
                         <span className='desc'>
-                            starsetphenomenon@gmail.com
+                            ron.viz.dev@gmail.com
                         </span>
                     </li>
                     <li>
@@ -89,15 +114,15 @@ function About() {
                             Languages:
                         </span>
                         <span className='desc'>
-                            Ukrainian, English, Hungarian, Russian
+                            Ukrainian, English, Hungarian
                         </span>
                     </li>
                     <li>
                         <span className='title'>
-                            Adress:
+                            Based in:
                         </span>
                         <span className='desc'>
-                            Ukraine, Transcarpathia
+                            Rakhiv, Ukraine
                         </span>
                     </li>
                 </ul>
@@ -112,80 +137,6 @@ function About() {
 
 
             </div>
-            <div className="skills">
-                <h3>My skills</h3>
-                <Parallax scale={[0.9, 1.1]}>
-                    <div className="skills_main">
-                        <div className="skills_wrapper">
-                            <div className="skill">
-                                <svg>
-                                    <use href={sprites + '#html'} />
-                                </svg>
-                            </div>
-                            <div className="skill">
-                                <svg>
-                                    <use href={sprites + '#css'} />
-                                </svg>
-                            </div>
-                            <div className="skill">
-                                <svg className='js'>
-                                    <use href={sprites + '#js'} />
-                                </svg>
-                            </div>
-                            <div className="skill">
-                                <svg className='ts'>
-                                    <use href={sprites + '#ts'} />
-                                </svg>
-                            </div>
-                            <div className="skill">
-                                <svg className='react'>
-                                    <use href={sprites + '#react'} />
-                                </svg>
-                            </div>
-                            <div className="skill">
-                                <svg className='angular'>
-                                    <use href={sprites + '#angular'} />
-                                </svg>
-                            </div>
-                            <div className="skill">
-                                <svg className='ngrx'>
-                                    <use href={sprites + '#ngrx'} />
-                                </svg>
-                            </div>
-                            <div className="skill">
-                                <svg className='sass'>
-                                    <use href={sprites + '#sass'} />
-                                </svg>
-                            </div>
-                            <div className="skill">
-                                <svg className='bootstrap'>
-                                    <use href={sprites + '#bootstrap'} />
-                                </svg>
-                            </div>
-                            <div className="skill">
-                                <svg>
-                                    <use href={sprites + '#git'} />
-                                </svg>
-                            </div>
-                            <div className="skill">
-                                <svg className='node'>
-                                    <use href={sprites + '#node'} />
-                                </svg>
-                            </div>
-                            <div className="skill">
-                                <svg className='gulp'>
-                                    <use href={sprites + '#gulp'} />
-                                </svg>
-                            </div>
-                            <div className="skill">
-                                <svg className='wordpress'>
-                                    <use href={sprites + '#wordpress'} />
-                                </svg>
-                            </div>
-                        </div>
-                    </div>
-                </Parallax>
-            </div>
             <div className="experience">
                 <h3>Experience & education</h3>
                 <div className="exp_edu">
@@ -196,8 +147,18 @@ function About() {
                                     <use href={sprites + '#case'} />
                                 </svg>
                             </div>
-                            <span>Oct 2021 - present</span>
-                            <h5>Markup developer</h5>
+                            <span>Dec 2022 - Sep 2026</span>
+                            <h5>Frontend Developer</h5>
+                            <h4>IQua</h4>
+                        </li>
+                        <li>
+                            <div className="icon">
+                                <svg>
+                                    <use href={sprites + '#case'} />
+                                </svg>
+                            </div>
+                            <span>Oct 2021 - Sep 2022</span>
+                            <h5>Markup Developer</h5>
                             <h4>Freelance</h4>
                         </li>
                     </ul>
@@ -215,40 +176,23 @@ function About() {
                                 COLLEGE OF HIGHER EDUCATION
                             </h4>
                         </li>
-                        <li>
-                            <div className="icon">
-                                <svg>
-                                    <use href={sprites + '#education'} />
-                                </svg>
-                            </div>
-                            <span>Aug 2021</span>
-                            <h5>Frontend development
-                            </h5>
-                            <h4>Udemy</h4>
-                        </li>
-                        <li>
-                            <div className="icon">
-                                <svg>
-                                    <use href={sprites + '#education'} />
-                                </svg>
-                            </div>
-                            <span>Apr 2022 - Sep 2022</span>
-                            <h5>Frontend Pro
-                            </h5>
-                            <h4>Hillel IT school</h4>
-                        </li>
-                        <li>
-                            <div className="icon">
-                                <svg>
-                                    <use href={sprites + '#education'} />
-                                </svg>
-                            </div>
-                            <span>Sep 2022 - Nov 2022</span>
-                            <h5>Javascript + React
-                            </h5>
-                            <h4>Udemy</h4>
-                        </li>
                     </ul>
+                </div>
+            </div>
+            <div className="skills">
+                <h3>Skills & tools</h3>
+                <div>
+                    <div className="skills_main">
+                        <div className="skills_wrapper">
+                            {skills.map(({ label, icon }) => (
+                                <div className="skill" key={label} title={label}>
+                                    <svg className={icon} aria-label={label} role="img">
+                                        <use href={sprites + `#${icon}`} />
+                                    </svg>
+                                </div>
+                            ))}
+                        </div>
+                    </div>
                 </div>
             </div>
         </div >

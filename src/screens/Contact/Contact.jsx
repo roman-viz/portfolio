@@ -79,14 +79,14 @@ function Contact() {
                         creative ideas or opportunities to be part of your visions.
                     </p>
                     <div className="item">
-                        <a href="mailto:starsetphenomenon@gmail.com">
+                        <a href="mailto:ron.viz.dev@gmail.com">
                             <svg>
                                 <use href={sprites + '#mail'} />
                             </svg>
                         </a>
                         <div className="desc">
                             <h4>Mail me</h4>
-                            <a href="mailto:starsetphenomenon@gmail.com">starsetphenomenon@gmail.com</a>
+                            <a href="mailto:ron.viz.dev@gmail.com">ron.viz.dev@gmail.com</a>
                         </div>
                     </div>
                     <div className="item">
@@ -101,23 +101,13 @@ function Contact() {
                         </div>
                     </div>
                     <div className="social">
-                        <a href="https://www.facebook.com/roman.viznyy/" target="_blank">
-                            <svg>
-                                <use href={sprites + '#facebook'} />
-                            </svg>
-                        </a>
-
                         <a href="https://t.me/starsetphenomenon" target="_blank">
                             <svg>
                                 <use href={sprites + '#telegram'} />
                             </svg>
                         </a>
-                        <a href="https://www.instagram.com/unrav3l_me/" target="_blank">
-                            <svg>
-                                <use href={sprites + '#instagram'} />
-                            </svg>
-                        </a>
-                        <a href="https://github.com/starsetphenomenon/" target="_blank">
+
+                        <a href="https://github.com/roman-viz" target="_blank">
                             <svg>
                                 <use href={sprites + '#github'} />
                             </svg>

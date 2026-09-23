@@ -7,10 +7,10 @@
 .mailSent {
     position: absolute;
     bottom: 10%;
-    right: 0;
+    right: 16px;
     padding: 5px 15px;
     height: 60px;
-    width: 220px;
+    width: min(220px, calc(100vw - 32px));
     background: $bg;
     display: flex;
     justify-content: center;

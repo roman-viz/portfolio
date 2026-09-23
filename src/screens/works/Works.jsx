@@ -5,6 +5,8 @@ import { Helmet } from "react-helmet-async";
 import Loader from '../../components/Loader/Loader';
 import { useState, useEffect } from 'react';
 
+const defaultProjectImage = '/assets/img/works/default.webp';
+
 function Works() {
 
     const [loadingDone, setLoadingDone] = useState(false);
@@ -14,6 +16,45 @@ function Works() {
     }, [])
 
     const works = {
+        'fat-finger': {
+            heading: 'Fat Finger',
+            project: 'enterprise web application',
+            client: 'IQua',
+            languages: 'Angular, TypeScript, RxJS, shared UI library',
+            img: '/assets/img/works/fatFinger.webp',
+        },
+        'symphony-taxonomy': {
+            heading: 'Symphony Taxonomy UI',
+            project: 'enterprise ad-tech application',
+            client: 'IQua',
+            languages: 'Angular, spreadsheet generator, Cypress, Karma/Mocha',
+        },
+        'symphony-campaign-builder': {
+            heading: 'UI Campaign Builder',
+            project: 'media campaign setup application',
+            client: 'IQua',
+            languages: 'Angular, TypeScript, workbook UI, REST APIs',
+        },
+        'symphony-mdm': {
+            heading: 'UI MDM Application',
+            project: 'data management application',
+            client: 'IQua',
+            languages: 'Angular, schema-driven grids, Playwright',
+        },
+        'fittra-pm': {
+            heading: 'Fittra PM',
+            project: 'project management platform',
+            client: 'construction company',
+            languages: 'React, Firebase, Firestore, Cloud Functions, MCP',
+            img: '/assets/img/works/fittra.webp',
+        },
+        'factme': {
+            heading: 'FactMe',
+            project: 'cross-platform mobile application',
+            client: '-',
+            languages: 'Angular, Ionic, Capacitor, Firebase',
+            img: '/assets/img/works/factMe.webp',
+        },
         'absences-calendar': {
             'heading': 'absences calendar',
             'project': 'web appliaction',
@@ -80,9 +121,20 @@ function Works() {
         }
     }
 
-    const sliderKeys = Object.keys(works)
+    const projectGroups = {
+        cv: ['fat-finger', 'fittra-pm', 'factme', 'symphony-taxonomy', 'symphony-campaign-builder', 'symphony-mdm'],
+        pet: ['absences-calendar', 'knife-store', 'gradient-generator', 'rootz', 'roza-vitriv', 'custom-gallery', 'slider-swiper', 'password-generator']
+    };
+
+    const [activeTab, setActiveTab] = useState('cv');
+    const sliderKeys = projectGroups[activeTab];
 
     const [active, setActive] = useState(false);
+
+    const handleTab = (tab) => {
+        setActive(false);
+        setActiveTab(tab);
+    };
 
     const handleWork = (e) => {
         e.stopPropagation()
@@ -118,6 +170,24 @@ function Works() {
             </Helmet>
             {active && <div onClick={handleWork} className="wrapper"></div>}
             <Heading parVal={[-180, 0]} heading="My" hspan="portfolio" span="works" />
+            <div className="project_tabs" role="tablist" aria-label="Project categories">
+                <button
+                    className={activeTab === 'cv' ? 'active' : ''}
+                    onClick={() => handleTab('cv')}
+                    role="tab"
+                    aria-selected={activeTab === 'cv'}
+                >
+                    Selected
+                </button>
+                <button
+                    className={activeTab === 'pet' ? 'active' : ''}
+                    onClick={() => handleTab('pet')}
+                    role="tab"
+                    aria-selected={activeTab === 'pet'}
+                >
+                    Personal
+                </button>
+            </div>
             <div className="portfolio">
                 <div className={active ? 'info active' : 'info'}>
                     <div className="navBtns">
@@ -142,7 +212,7 @@ function Works() {
                             <svg>
                                 <use href={sprites + '#project'} />
                             </svg>
-                            <span>Project: </span>
+                            <span>Type: </span>
                             <h4>{works[active]?.project}</h4>
                         </div>
                         <div className="desc_item">
@@ -159,67 +229,27 @@ function Works() {
                             <span>Stack: </span>
                             <h4>{works[active]?.languages}</h4>
                         </div>
-                        <div className="desc_item">
+                        {works[active]?.preview && <div className="desc_item">
                             <svg>
                                 <use href={sprites + '#link'} />
                             </svg>
                             <span>Preview: </span>
                             <a rel="noreferrer" target="_blank" href={works[active]?.preview}>link</a>
-                        </div>
+                        </div>}
                     </div>
                     <div className="desc_img">
-                        <img src={works[active]?.img} alt="project" />
+                        <img src={works[active]?.img || defaultProjectImage} alt={works[active]?.heading} />
                     </div>
                 </div>
 
-                <div name="absences-calendar" onClick={(e) => setActive(e.currentTarget.getAttribute('name'))} className="item">
-                    <img src="/assets/img/works/angu-calendar.webp" alt="project8" />
-                    <div className="cover">
-                        <h3>Absences calendar</h3>
+                {sliderKeys.map((key) => (
+                    <div key={key} name={key} onClick={() => setActive(key)} className="item">
+                        <img src={works[key].img || defaultProjectImage} alt={works[key].heading} />
+                        <div className="cover">
+                            <h3>{works[key].heading}</h3>
+                        </div>
                     </div>
-                </div>
-                <div name="knife-store" onClick={(e) => setActive(e.currentTarget.getAttribute('name'))} className="item">
-                    <img src="/assets/img/works/react-store-project.webp" alt="project1" />
-                    <div className="cover">
-                        <h3>Knife-store</h3>
-                    </div>
-                </div>
-                <div name="gradient-generator" onClick={(e) => setActive(e.currentTarget.getAttribute('name'))} className="item">
-                    <img src="/assets/img/works/gradient.webp" alt="project2" />
-                    <div className="cover">
-                        <h3>Gradient generator</h3>
-                    </div>
-                </div>
-                <div name="rootz" onClick={(e) => setActive(e.currentTarget.getAttribute('name'))} className="item">
-                    <img src="/assets/img/works/rootz.webp" alt="project3" />
-                    <div className="cover">
-                        <h3>Rootz</h3>
-                    </div>
-                </div>
-                <div name="roza-vitriv" onClick={(e) => setActive(e.currentTarget.getAttribute('name'))} className="item">
-                    <img src="/assets/img/works/polonyna.webp" alt="project4" />
-                    <div className="cover">
-                        <h3>Roza Vitriv</h3>
-                    </div>
-                </div>
-                <div name="custom-gallery" onClick={(e) => setActive(e.currentTarget.getAttribute('name'))} className="item">
-                    <img src="/assets/img/works/custom-gallery.webp" alt="project5" />
-                    <div className="cover">
-                        <h3>Custom Gallery</h3>
-                    </div>
-                </div>
-                <div name="slider-swiper" onClick={(e) => setActive(e.currentTarget.getAttribute('name'))} className="item">
-                    <img src="/assets/img/works/slider-swiper.webp" alt="project6" />
-                    <div className="cover">
-                        <h3>Slider/Swiper</h3>
-                    </div>
-                </div>
-                <div name="password-generator" onClick={(e) => setActive(e.currentTarget.getAttribute('name'))} className="item">
-                    <img src="/assets/img/works/password-generator.webp" alt="project7" />
-                    <div className="cover">
-                        <h3>Password Generator</h3>
-                    </div>
-                </div>
+                ))}
             </div>
         </div>
     )

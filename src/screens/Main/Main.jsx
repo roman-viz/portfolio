@@ -26,12 +26,11 @@ function Main() {
 
                 <h1>I'm Roman Viznij
                     <br></br>
-                    <span>Web developer</span>
+                    <span>Frontend developer</span>
                 </h1>
-                <p>I'm Ukrainian based front‑end developer focused on
-                    creating clean & user‑friendly experiences, I am passionate about
-                    building product that improves the lives of those
-                    who uses it.</p>
+                <p>Frontend developer with experience building enterprise Angular applications,
+                    React products and cross-platform mobile apps. I focus on maintainable
+                    architecture, smooth user experiences and reliable delivery.</p>
             </div>
         </div>
     )

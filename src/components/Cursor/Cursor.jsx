@@ -81,8 +81,8 @@ const Cursor = () => {
         cursorVisible.current = true;
         toggleCursorVisibility();
 
-        endX.current = e.pageX;
-        endY.current = e.pageY;
+        endX.current = e.clientX;
+        endY.current = e.clientY;
 
         dot.current.style.top = endY.current + 'px';
         dot.current.style.left = endX.current + 'px';

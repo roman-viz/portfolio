@@ -5,12 +5,14 @@
 }
 
 .main {
-    position: absolute;
-    top: 60px;
+    position: fixed;
     height: 100vh;
+    top: 0;
     width: 90vw;
     display: flex;
     flex-direction: row;
+    overflow: visible;
+    box-sizing: border-box;
     align-items: center;
     justify-content: flex-start;
     transition: all 0.8s ease-in-out;
@@ -18,7 +20,7 @@
     .bgShape {
         position: absolute;
         background-color: $orange;
-        height: 150vh;
+        height: 100vh;
         width: 50vw;
         left: -42%;
         transform: rotate(-15deg);
@@ -66,11 +68,13 @@
     &_img {
         height: 90vh;
         width: 30%;
+        flex: 0 0 30%;
         z-index: 10;
 
         img {
             height: 100%;
             width: 100%;
+            box-sizing: border-box;
             object-fit: cover;
             border-radius: 30px;
         }
@@ -79,17 +83,23 @@
 
 @media (max-width: 991px) and (min-width: 768px) {
     .main {
+        position: relative;
+        height: auto;
+        min-height: calc(100dvh - 60px);
+        padding-bottom: 80px;
         flex-direction: column;
-        justify-content: center;
+        justify-content: flex-start;
+        padding-top: clamp(20px, 5vh, 48px);
 
         .bgShape {
             display: none;
         }
 
         &_img {
-            height: 270px;
-            width: 270px;
-            margin-top: -10%;
+            height: clamp(190px, 32vw, 250px);
+            width: clamp(190px, 32vw, 250px);
+            flex: 0 0 auto;
+            margin-top: 0;
 
             img {
                 border-radius: 50%;
@@ -103,7 +113,8 @@
 
             h1 {
                 padding: 0;
-                font-size: 38px;
+                font-size: clamp(30px, 4.5vw, 38px);
+                line-height: 1.2;
 
                 &::before {
                     display: none;
@@ -115,17 +126,23 @@
 
 @media (max-width: 767px) and (min-width: 320px) {
     .main {
+        position: relative;
+        height: auto;
+        min-height: calc(100dvh - 60px);
+        padding-bottom: 80px;
         flex-direction: column;
-        justify-content: center;
+        justify-content: flex-start;
+        padding-top: clamp(20px, 5vh, 40px);
 
         .bgShape {
             display: none;
         }
 
         &_img {
-            height: 270px;
-            width: 270px;
-            margin-top: -10%;
+            height: clamp(180px, 62vw, 240px);
+            width: clamp(180px, 62vw, 240px);
+            flex: 0 0 auto;
+            margin-top: 0;
 
             img {
                 border-radius: 50%;
@@ -140,7 +157,8 @@
 
             h1 {
                 padding: 0;
-                font-size: 28px;
+                font-size: clamp(24px, 7vw, 32px);
+                line-height: 1.2;
 
                 &::before {
                     display: none;
@@ -148,7 +166,8 @@
             }
 
             p {
-                font-size: 17px;
+                font-size: clamp(15px, 4.2vw, 17px);
+                line-height: 1.6;
             }
         }
     }

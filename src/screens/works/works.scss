@@ -11,6 +11,33 @@
     margin: 120px auto 120px auto;
     transition: all 1.6s ease-out;
 
+    .project_tabs {
+        display: flex;
+        justify-content: center;
+        gap: 12px;
+        margin: 0 auto 34px;
+
+        button {
+            min-height: 44px;
+            padding: 0 24px;
+            border: 1px solid $orange;
+            border-radius: 24px;
+            background: transparent;
+            color: #fff;
+            font: inherit;
+            font-size: 15px;
+            text-transform: uppercase;
+            cursor: pointer;
+            transition: background-color 0.25s, color 0.25s;
+
+            &:hover,
+            &.active {
+                background: $orange;
+                color: #111;
+            }
+        }
+    }
+
 
     .wrapper {
         height: 100vh;
@@ -32,16 +59,18 @@
 
         .info.active {
             opacity: 1;
-            transform: translate(-50%, -50%) scaleX(1);
+            visibility: visible;
+            pointer-events: auto;
         }
 
         .info {
             position: fixed;
-            height: auto;
-            width: 50%;
+            width: min(50vw, 720px);
+            max-height: calc(100vh - 32px);
+            box-sizing: border-box;
             top: 50%;
             left: 50%;
-            transform: translate(-50%, -50%) scaleX(0);
+            transform: translate(-50%, -50%);
             z-index: 150;
             display: flex;
             flex-direction: column;
@@ -52,7 +81,17 @@
             padding: 1rem 2rem;
             gap: 30px;
             opacity: 0;
-            transition: all 0.3s ease-out;
+            visibility: hidden;
+            pointer-events: none;
+            overflow-y: auto;
+            overflow-x: hidden;
+            scrollbar-width: none;
+            transition: opacity 0.3s ease-out;
+
+            &::-webkit-scrollbar {
+                width: 0;
+                height: 0;
+            }
 
             .next,
             .prev {
@@ -88,10 +127,10 @@
                 height: 40px;
                 width: 40px;
                 position: absolute;
-                right: -60px;
-                top: -20px;
+                right: 16px;
+                top: 16px;
                 border-radius: 50%;
-                border: 2px solid #fff;
+                border: 0;
                 z-index: 150;
 
                 &:hover {
@@ -167,21 +206,37 @@
             }
 
             .desc_img {
-                height: 100%;
-                width: auto;
+                max-height: 260px;
+                width: 100%;
 
                 img {
-                    height: 100%;
+                    height: auto;
+                    max-height: 260px;
                     width: 100%;
+                    object-fit: contain;
                     border-radius: 0.5rem;
                 }
+            }
+
+            .desc_placeholder {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                width: 100%;
+                min-height: 180px;
+                border: 1px dashed rgba(255, 140, 0, 0.6);
+                border-radius: 0.5rem;
+                color: rgba(255, 255, 255, 0.6);
+                text-transform: uppercase;
+                text-align: center;
+                font-size: 14px;
             }
         }
 
         .item {
             position: relative;
             height: 220px;
-            width: 380px;
+            width: min(100%, 380px);
 
 
 
@@ -223,6 +278,19 @@
                 object-fit: cover;
 
             }
+
+            .item_placeholder {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                height: 100%;
+                width: 100%;
+                border-radius: 0.5rem;
+                background: linear-gradient(135deg, #252525, #171717);
+                color: rgba(255, 255, 255, 0.5);
+                font-size: 18px;
+                text-transform: uppercase;
+            }
         }
     }
 }
@@ -236,6 +304,10 @@
 @media (max-width: 991px) and (min-width: 768px) {
     .works {
         width: 90vw;
+
+        .portfolio {
+            gap: 20px;
+        }
 
         .portfolio {
             .item {
@@ -261,11 +333,11 @@
 
         .portfolio {
             .item {
-                width: 420px;
+                width: 100%;
             }
 
             .info {
-                width: 70%;
+                width: min(70vw, 620px);
 
                 .close {
                     right: 10px;
@@ -289,23 +361,35 @@
 
 @media (max-width: 575px) {
     .works {
-        width: 80vw;
+        width: calc(100vw - 32px);
+        margin-top: 72px;
+
+        .project_tabs {
+            gap: 8px;
+            margin-bottom: 24px;
+
+            button {
+                flex: 1;
+                padding: 0 10px;
+                font-size: 12px;
+            }
+        }
 
         .portfolio {
             .item {
-                width: 420px;
+                width: 100%;
             }
 
             .info {
-                width: 70%;
+                width: calc(100vw - 32px);
                 gap: 10px;
 
                 .prev {
-                    left: -5%;
+                    left: 8px;
                 }
 
                 .next {
-                    right: -5%;
+                    right: 8px;
                 }
 
                 h3 {
@@ -322,6 +406,7 @@
 
                 .desc {
                     grid-template-columns: 1fr;
+                    overflow-wrap: anywhere;
 
                     &_item {
                         gap: 5px;
