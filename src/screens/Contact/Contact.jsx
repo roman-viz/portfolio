@@ -13,6 +13,8 @@ function Contact() {
 
     const [inputError, setInputError] = useState(false);
     const [mailSent, setMailSent] = useState(false);
+    const [mailError, setMailError] = useState(false);
+    const [sending, setSending] = useState(false);
     const form = useRef();
     const [formInputs, setFormInputs] = useState({
         name: '',
@@ -26,9 +28,9 @@ function Contact() {
         })
     }
 
-    const sendEmail = (e) => {
+    const sendEmail = async (e) => {
         e.preventDefault();
-        if (!formInputs.name.length || !formInputs.message.length) {
+        if (!formInputs.name.trim().length || !formInputs.message.trim().length) {
             setMailSent(false);
             setInputError(true);
             setTimeout(() => {
@@ -39,21 +41,24 @@ function Contact() {
         if (inputError) {
             setInputError(false)
         }
-        setMailSent(true)
-        setFormInputs({
-            name: '',
-            message: '',
-        })
-        emailjs.sendForm('service_icldehq', 'template_ta52gji', form.current, 'RyN1J3KsfCRnE7yVi')
-            .then((result) => {
-                console.log(result.text);
-            }, (error) => {
-                console.log(error.text);
-            });
+        setMailSent(false);
+        setMailError(false);
+        setSending(true);
 
-        setTimeout(() => {
-            setMailSent(false)
-        }, 3000)
+        try {
+            await emailjs.sendForm('service_icldehq', 'template_ta52gji', form.current, 'AO0qs3gxnTGtzQks4');
+            setMailSent(true);
+            setFormInputs({
+                name: '',
+                message: '',
+            });
+            setTimeout(() => setMailSent(false), 3000);
+        } catch (error) {
+            setMailError(true);
+            setTimeout(() => setMailError(false), 3000);
+        } finally {
+            setSending(false);
+        }
     };
 
     const [loadingDone, setLoadingDone] = useState(false);
@@ -65,7 +70,8 @@ function Contact() {
     return (
         <div className={loadingDone ? 'contact done' : 'contact'}>
             <Message trigger={mailSent}>Message sent!</Message>
-            <Message color="red" trigger={inputError}>Fill all fields!</Message>
+            <Message color="red" trigger={mailError}>Error sending message!</Message>
+            <Message color="red" trigger={inputError}>Fill all the fields!</Message>
             <Loader />
             <Helmet>
                 <title>Contact</title>
@@ -117,10 +123,14 @@ function Contact() {
                 <form className='form' ref={form} onSubmit={sendEmail}>
                     <input onChange={handleInputsChange} value={formInputs.name} type="text" name="name" id="name" placeholder='Your name' />
                     <textarea onChange={handleInputsChange} value={formInputs.message} placeholder='Your message...' name="message" id="message" cols="30" rows="10"></textarea>
-                    <ButtonPrim text="Send message">
-                        <svg>
-                            <use href={sprites + '#send'} />
-                        </svg>
+                    <ButtonPrim text={sending ? 'Sending...' : 'Send message'} disabled={sending} aria-busy={sending}>
+                        {sending ? (
+                            <span className="button-spinner" aria-hidden="true" />
+                        ) : (
+                            <svg>
+                                <use href={sprites + '#send'} />
+                            </svg>
+                        )}
                     </ButtonPrim>
 
                 </form>
