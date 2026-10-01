@@ -1,5 +1,6 @@
 import './loader.scss';
 import { useState, useEffect } from 'react';
+import { createPortal } from 'react-dom';
 import sprites from '../../icons/icons.svg';
 
 function Loader() {
@@ -10,12 +11,13 @@ function Loader() {
         setLoadingDone(true)
     }, [])
 
-    return (
+    return createPortal(
         <div className={loadingDone ? 'loader done' : 'loader'}>
             <svg>
                 <use href={sprites + '#send'} />
             </svg>
-        </div>
+        </div>,
+        document.body
     )
 }
 
