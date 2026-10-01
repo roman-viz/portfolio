@@ -77,7 +77,7 @@ function Works() {
             'project': 'website',
             'client': 'pet project',
             'languages': 'HTML, CSS, JS',
-            'preview': 'https://starsetphenomenon.github.io/gradient-generator/',
+            'preview': 'https://roman-viz.github.io/gradient-generator/',
             'img': '/assets/img/works/gradient.webp',
         },
         'rootz': {
@@ -93,7 +93,7 @@ function Works() {
             'project': 'website',
             'client': 'Ivan Nebela',
             'languages': 'HTML, SCSS, JS, WOW.JS, Animate.CSS',
-            'preview': 'https://starsetphenomenon.github.io/polonyna/',
+            'preview': 'https://polonyna.vercel.app/',
             'img': '/assets/img/works/polonyna.webp',
         },
         'custom-gallery': {
@@ -101,7 +101,7 @@ function Works() {
             'project': 'script',
             'client': 'pet project',
             'languages': 'HTML, CSS, JS',
-            'preview': 'https://starsetphenomenon.github.io/custom-gallery/',
+            'preview': 'https://roman-viz.github.io/custom-gallery/',
             'img': '/assets/img/works/custom-gallery.webp',
         },
         'slider-swiper': {
@@ -109,7 +109,7 @@ function Works() {
             'project': 'script',
             'client': 'pet project',
             'languages': 'HTML, CSS, JS',
-            'preview': 'https://starsetphenomenon.github.io/slider/',
+            'preview': 'https://roman-viz.github.io/slider/',
             'img': '/assets/img/works/slider-swiper.webp',
         },
         'password-generator': {
@@ -117,7 +117,7 @@ function Works() {
             'project': 'website',
             'client': 'pet project',
             'languages': 'HTML, CSS, JS',
-            'preview': 'https://starsetphenomenon.github.io/password-generator/',
+            'preview': 'https://roman-viz.github.io/password-generator/',
             'img': '/assets/img/works/password-generator.webp',
         }
     }
