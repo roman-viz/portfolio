@@ -24,19 +24,19 @@ function Works() {
             img: '/assets/img/works/fatFinger.webp',
         },
         'symphony-taxonomy': {
-            heading: 'Symphony Taxonomy UI',
+            heading: 'Taxonomy',
             project: 'enterprise ad-tech application',
             client: 'IQua',
             languages: 'Angular, spreadsheet generator, Cypress, Karma/Mocha',
         },
         'symphony-campaign-builder': {
-            heading: 'UI Campaign Builder',
+            heading: 'Campaign Builder',
             project: 'media campaign setup application',
             client: 'IQua',
             languages: 'Angular, TypeScript, workbook UI, REST APIs',
         },
         'symphony-mdm': {
-            heading: 'UI MDM Application',
+            heading: 'Master Data Management',
             project: 'data management application',
             client: 'IQua',
             languages: 'Angular, schema-driven grids, Playwright',
